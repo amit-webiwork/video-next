@@ -7,9 +7,7 @@ import VideoState from "./context/VideoState";
 export default function Home() {
   return (
     <>
-      <VideoState>
-        <Video />
-      </VideoState>
+      <Video />
     </>
   );
 }
