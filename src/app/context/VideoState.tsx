@@ -39,7 +39,7 @@ const VideoState = ({ children }: any) => {
             .then((currentStream: any) => {
                 setStream(currentStream);
                 if (myVideo.current)
-                    myVideo.current.srcObject = stream;
+                    myVideo.current.srcObject = currentStream;
             }).catch(err => console.error(err.message));
         if (localStorage.getItem("name")) {
             setName(localStorage?.getItem("name"));
