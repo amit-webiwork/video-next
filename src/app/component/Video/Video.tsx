@@ -6,7 +6,7 @@ import { UserOutlined, MessageOutlined } from "@ant-design/icons";
 import Image from "next/image";
 import "./Video.css";
 
-import VideoContext from "@/app/context/VideoContext"; 
+import VideoContext from "@/app/context/VideoContext";
 
 export default function Video() {
   const {
@@ -60,20 +60,18 @@ export default function Video() {
           {stream ? (
             <div className="row">
               <div className="col-1 text-center">
-                <>
-                  {myVdoStatus ? (
-                    <video
-                      playsInline
-                      muted
-                      onClick={fullScreen}
-                      ref={myVideo}
-                      autoPlay
-                      className="video-active"
-                    />
-                  ) : (
-                    <Image src="/user.jpg" alt="user" width={400} height={400} className="host-img" />
-                  )}
-                </>
+                <video
+                  playsInline
+                  muted
+                  onClick={fullScreen}
+                  ref={myVideo}
+                  autoPlay
+                  className="video-active"
+                  style={{
+                    opacity: `${myVdoStatus ? "1" : "0"}`,
+                  }}
+                />
+                <Image src="/user.jpg" alt="user" width={400} height={400} className="host-img" style={{ display: `${myVdoStatus ? "none" : "block"}` }} />
                 <div className="contarols">
                   <img src="https://i.postimg.cc/3NVtVtgf/chat.png" />
                   <img src="https://i.postimg.cc/BQPYHG0r/disconnect.png" />
