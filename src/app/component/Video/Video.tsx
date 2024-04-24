@@ -39,7 +39,7 @@ export default function Video() {
   }: any = useContext(VideoContext);
   return (
     <>
-      {console.log(myVideo.current.srcObject, 'myVideo-----------')}
+      {console.log(myVideo.current?.srcObject, 'myVideo-----------')}
 
       {/* <video
         playsInline
