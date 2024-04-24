@@ -75,7 +75,7 @@ const VideoState = ({ children }: any) => {
                 setMsgRcv({});
             }, 2000);
         });
-    }, []);
+    }, [myVideo]);
 
     const answerCall = () => {
         setCallAccepted(true);
