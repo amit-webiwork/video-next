@@ -39,6 +39,19 @@ export default function Video() {
   }: any = useContext(VideoContext);
   return (
     <>
+      {console.log(myVideo.current.srcObject, 'myVideo-----------')}
+
+      {/* <video
+        playsInline
+        muted
+        onClick={fullScreen}
+        ref={myVideo}
+        autoPlay
+        className="video-active"
+        style={{
+          opacity: `${myVdoStatus ? "1" : "0"}`,
+        }}
+      /> */}
       <div className="header">
         <nav id="nav">
           {/* <img src="https://i.postimg.cc/Sx0ZGtQJ/logo.png" className="logo" /> */}
