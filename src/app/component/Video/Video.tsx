@@ -252,7 +252,7 @@ export default function Video() {
 
   return (
     <>
-      {console.log(stream, 'stream------------')}
+      {console.log(myVideo.current?.srcObject, 'stream------------')}
 
       {/* <video
         playsInline
