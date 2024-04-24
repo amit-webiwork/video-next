@@ -37,7 +37,8 @@ const VideoState = ({ children }: any) => {
             .getUserMedia({ video: true, audio: true })
             .then((currentStream: any) => {
                 setStream(currentStream);
-                myVideo.current.srcObject = currentStream;
+                if (myVideo)
+                    myVideo.current.srcObject = stream;
             }).catch(err => console.error(err.message));
         if (localStorage.getItem("name")) {
             setName(localStorage?.getItem("name"));
