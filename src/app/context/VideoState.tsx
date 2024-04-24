@@ -1,5 +1,5 @@
 "use client";
-import React, { useState, useEffect, useRef } from "react";
+import React, { VideoHTMLAttributes, useState, useEffect, useRef } from "react";
 import VideoContext from "./VideoContext";
 import { io } from "socket.io-client";
 import Peer from "simple-peer";
@@ -27,17 +27,18 @@ const VideoState = ({ children }: any) => {
     const [msgRcv, setMsgRcv] = useState<any>("");
     const [screenShare, setScreenShare] = useState(false)
 
-    const myVideo = useRef<any>();
+    const myVideo = useRef<any>(null);
     const userVideo = useRef<any>();
     const connectionRef = useRef<any>();
     const screenTrackRef = useRef<any>();
+
 
     useEffect(() => {
         navigator.mediaDevices
             .getUserMedia({ video: true, audio: true })
             .then((currentStream: any) => {
                 setStream(currentStream);
-                if (myVideo)
+                if (myVideo.current)
                     myVideo.current.srcObject = stream;
             }).catch(err => console.error(err.message));
         if (localStorage.getItem("name")) {
@@ -75,7 +76,7 @@ const VideoState = ({ children }: any) => {
                 setMsgRcv({});
             }, 2000);
         });
-    }, [myVideo]);
+    }, []);
 
     const answerCall = () => {
         setCallAccepted(true);
@@ -236,7 +237,7 @@ const VideoState = ({ children }: any) => {
     };
     const sendMsg = (value) => {
         socket.emit("msgUser", { name, to: otherUser, msg: value, sender: name });
-        let msg:any = {};
+        let msg: any = {};
         msg.msg = value;
         msg.type = "sent";
         msg.timestamp = Date.now();
