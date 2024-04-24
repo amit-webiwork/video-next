@@ -32,8 +32,10 @@ const VideoState = ({ children }: any) => {
     const connectionRef = useRef<any>();
     const screenTrackRef = useRef<any>();
 
+    {console.log(myVideo.current, myVideo.current?.srcObject, 'myVideoUpper')}
 
     useEffect(() => {
+        {console.log(myVideo.current, myVideo.current?.srcObject, 'myVideo')}
         navigator.mediaDevices
             .getUserMedia({ video: true, audio: true })
             .then((currentStream: any) => {
@@ -76,7 +78,7 @@ const VideoState = ({ children }: any) => {
                 setMsgRcv({});
             }, 2000);
         });
-    }, []);
+    }, [myVideo.current]);
 
     const answerCall = () => {
         setCallAccepted(true);
