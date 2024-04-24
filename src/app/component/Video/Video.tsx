@@ -80,7 +80,7 @@ export default function Video() {
         setMsgRcv({});
       }, 2000);
     });
-  }, [myVideo]);
+  }, [myVideo.current]);
 
   const answerCall = () => {
     setCallAccepted(true);
